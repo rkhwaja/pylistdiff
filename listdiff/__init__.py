@@ -12,10 +12,10 @@ def DiffUnsortedLists(listA, listB, keyA, keyB):
 
 def DiffListsByKey(iterA, iterB, keyA, keyB):
 	"""iterators point to lists sorted by the given keys, which also represent their identities for comparison"""
-	return DiffLists(iterA, iterB, lambda a, b: -1 if keyA(a) < keyB(b) else 1 if keyA(a) > keyB(b) else 0)
+	return _DiffLists(iterA, iterB, lambda a, b: -1 if keyA(a) < keyB(b) else 1 if keyA(a) > keyB(b) else 0)
 
 #assumes iterA and iterB are ordered
-def DiffLists(iterA, iterB, compare):
+def _DiffLists(iterA, iterB, compare):
 	"""
 	iterA and iterB are iterators to sorted collections
 	compare takes an A item and a B item and returns <0, 0 or >0
@@ -52,7 +52,7 @@ def TestRunDiffLists(listA, listB, expected=None):
 	print('------')
 	print(listA)
 	print(listB)
-	resultA = DiffLists(iterA=iter(listA), iterB=iter(listB), compare=lambda x, y: (x > y) - (y > x))
+	resultA = _DiffLists(iterA=iter(listA), iterB=iter(listB), compare=lambda x, y: (x > y) - (y > x))
 	resultB = DiffListsByKey(iterA=iter(listA), iterB=iter(listB), keyA=lambda x: x, keyB=lambda x: x)
 	assert expected == resultA
 	assert resultA == resultB
