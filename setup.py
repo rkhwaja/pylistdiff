@@ -6,7 +6,7 @@ with open("README.rst") as f:
 	long_description = f.read()
 
 setup(name="listdiff",
-	version="0.1",
+	version="0.2",
 	description="Diff lists",
 	long_description=long_description,
 	author="Rehan Khwaja",
@@ -16,7 +16,8 @@ setup(name="listdiff",
 	classifiers=[
 		"Development Status :: 3 - Alpha",
 		"Intended Audience :: Developers",
-		"Programming Language :: Python :: 3.6"
+		"Programming Language :: Python :: 3.6",
+		"Programming Language :: Python :: 3.7"
 	],
 	keywords="",
 )

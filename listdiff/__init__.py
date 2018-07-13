@@ -1,3 +1,5 @@
+"""Diff 2 python lists using a given key"""
+
 # another method might be to start with inA and inB and remove the ones that are shared
 
 # another method would be to make a separate function that carries on with the iterator until it reaches x>=y and then return
@@ -47,19 +49,3 @@ def _DiffLists(iterA, iterB, compare):
 			inBoth.append((a, b))
 			incA, incB = True, True
 	return inA, inBoth, inB
-
-def TestRunDiffLists(listA, listB, expected=None):
-	print('------')
-	print(listA)
-	print(listB)
-	resultA = _DiffLists(iterA=iter(listA), iterB=iter(listB), compare=lambda x, y: (x > y) - (y > x))
-	resultB = DiffListsByKey(iterA=iter(listA), iterB=iter(listB), keyA=lambda x: x, keyB=lambda x: x)
-	assert expected == resultA
-	assert resultA == resultB
-
-def Test():
-	RunDiffLists([1, 2, 3, 5], [2, 3, 4], ([1, 5], [(2, 2), (3, 3)], [4]))
-	RunDiffLists([], [2, 3, 4], ([], [], [2, 3, 4]))
-	RunDiffLists([1, 2, 3, 5], [], ([1, 2, 3, 5], [], []))
-	RunDiffLists([], [], ([], [], []))
-	RunDiffLists([1, 2, 3], [4, 5, 6], ([1, 2, 3], [], [4, 5, 6]))
