@@ -8,7 +8,7 @@ Diff 2 python lists using a given key
 Usage
 =====
 
-.. code:: python
+.. code-block:: python
 
 listA = [3, 2, 1]
 listB = [5, 4, 3]
