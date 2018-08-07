@@ -16,7 +16,7 @@ def DiffListsByKey(iterA, iterB, keyA, keyB):
 	"""iterators point to lists sorted by the given keys, which also represent their identities for comparison"""
 	return _DiffLists(iterA, iterB, lambda a, b: -1 if keyA(a) < keyB(b) else 1 if keyA(a) > keyB(b) else 0)
 
-#assumes iterA and iterB are ordered
+# assumes iterA and iterB are ordered
 def _DiffLists(iterA, iterB, compare):
 	"""
 	iterA and iterB are iterators to sorted collections
