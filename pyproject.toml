@@ -1,0 +1,11 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[tool.flit.metadata]
+module = "listdiff"
+author = "Rehan Khwaja"
+author-email = "rehan@khwaja.name"
+home-page = "https://github.com/rkhwaja/pylistdiff"
+classifiers = ["License :: OSI Approved :: MIT License"]
+
