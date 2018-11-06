@@ -7,8 +7,9 @@ module = "listdiff"
 author = "Rehan Khwaja"
 author-email = "rehan@khwaja.name"
 home-page = "https://github.com/rkhwaja/pylistdiff"
-classifiers = ["Development Status :: 3 - Alpha",
+classifiers = [
 	"License :: OSI Approved :: MIT License",
+	"Development Status :: 3 - Alpha",
 	"Intended Audience :: Developers",
 	"Programming Language :: Python :: 3.5",
 	"Programming Language :: Python :: 3.6",
