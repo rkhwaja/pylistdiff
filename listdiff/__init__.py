@@ -1,7 +1,5 @@
 """Diff 2 python lists using a given key"""
 
-__version__ = "0.2.0"
-
 # another method might be to start with inA and inB and remove the ones that are shared
 
 # another method would be to make a separate function that carries on with the iterator until it reaches x>=y and then return
