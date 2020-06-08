@@ -2,8 +2,7 @@ Overview
 ========
 Diff 2 python lists using a given key
 
-.. image:: https://travis-ci.org/rkhwaja/pylistdiff.svg?branch=master
-   :target: https://travis-ci.org/rkhwaja/pylistdiff
+.. image:: https://github.com/rkhwaja/pylistdiff/workflows/ci/badge.svg
 
 Usage
 =====
