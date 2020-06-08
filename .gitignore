@@ -1,5 +1,6 @@
 __pycache__
 .pytest_cache
-Pipfile.lock
+poetry.lock
 dist
 .DS_Store
+*.egg-info
