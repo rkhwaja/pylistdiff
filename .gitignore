@@ -4,3 +4,4 @@ poetry.lock
 dist
 .DS_Store
 *.egg-info
+.coverage
