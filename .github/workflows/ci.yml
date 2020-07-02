@@ -32,7 +32,7 @@ jobs:
         poetry install
     - name: Linter
       run: |
-        pylint listdiff tests
+        pylint --load-plugins pylint_quotes listdiff tests
     - name: Tests
       run: |
         pytest --cov=listdiff

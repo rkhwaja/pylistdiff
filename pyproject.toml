@@ -23,10 +23,12 @@ python = ">=3.5"
 pytest = "*"
 pylint = ">=2.5.3"
 pytest-cov = "^2.9.0"
+pylint-quotes = "*"
 
 [tool.pylint.format]
 indent-string = "\t"
 max-line-length = 200
+string-quote = "double"
 
 [tool.pylint.messages_control]
 disable = [
