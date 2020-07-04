@@ -4,7 +4,7 @@ version = "0.1"
 description = "Diff 2 python lists using a given key"
 authors = ["Rehan Khwaja <rehan@khwaja.name>"]
 license = "MIT"
-readme = "README.rst"
+readme = "README.md"
 homepage = "https://github.com/rkhwaja/pylistdiff"
 classifiers = [
 	"License :: OSI Approved :: MIT License",
