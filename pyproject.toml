@@ -25,6 +25,9 @@ pylint = ">=2.5.3"
 pytest-cov = "^2.9.0"
 pylint-quotes = "*"
 
+[tool.pylint.master]
+load-plugins = "pylint_quotes"
+
 [tool.pylint.format]
 indent-string = "\t"
 max-line-length = 200
