@@ -19,11 +19,11 @@ def test_diff_lists_by_key():
 	assert inB == [4, 5]
 
 @mark.parametrize("listA,listB,expected",
-	[ ([1, 2, 3, 5], [2, 3, 4], ([1, 5], [(2, 2), (3, 3)], [4])) # pylint: disable=bad-whitespace
+	[ ([1, 2, 3, 5], [2, 3, 4], ([1, 5], [(2, 2), (3, 3)], [4]))
 	, ([], [2, 3, 4], ([], [], [2, 3, 4]))
 	, ([1, 2, 3, 5], [], ([1, 2, 3, 5], [], []))
 	, ([], [], ([], [], []))
-	, ([1, 2, 3], [4, 5, 6], ([1, 2, 3], [], [4, 5, 6])) ]) # pylint: disable=bad-whitespace
+	, ([1, 2, 3], [4, 5, 6], ([1, 2, 3], [], [4, 5, 6])) ])
 def test_parameterized(listA, listB, expected):
 	resultA = _DiffLists(iterA=iter(listA), iterB=iter(listB), compare=lambda x, y: (x > y) - (y > x))
 	resultB = DiffListsByKey(iterA=iter(listA), iterB=iter(listB), keyA=lambda x: x, keyB=lambda x: x)
