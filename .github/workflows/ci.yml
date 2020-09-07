@@ -41,5 +41,5 @@ jobs:
         coverage xml
     - name: Codecov
       uses: codecov/codecov-action@v1.0.7
-      env:
-        CODECOV_TOKEN: 279b53cf-59db-4920-8d58-962f44a3306a
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
