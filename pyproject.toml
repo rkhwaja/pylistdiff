@@ -31,7 +31,7 @@ load-plugins = "pylint_quotes"
 [tool.pylint.format]
 indent-string = "\t"
 max-line-length = 200
-string-quote = "double"
+string-quote = "single"
 
 [tool.pylint.messages_control]
 disable = [
