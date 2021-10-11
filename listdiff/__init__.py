@@ -1,5 +1,8 @@
 """Diff 2 python lists using a given key"""
 
+from collections.abc import Iterable, Iterator
+from typing import Any
+
 # another method might be to start with inA and inB and remove the ones that are shared
 
 # another method would be to make a separate function that carries on with the iterator until it reaches x>=y and then return
@@ -8,11 +11,11 @@
 
 # another method is to use yield to make an iterator?
 
-def DiffUnsortedLists(listA, listB, keyA, keyB):
+def DiffUnsortedLists(listA: Iterable, listB: Iterable, keyA: Any, keyB: Any):
 	"""iterators point to unsorted lists but the given keys represent their identities for comparison"""
 	return DiffListsByKey(iter(sorted(listA, key=keyA)), iter(sorted(listB, key=keyB)), keyA, keyB)
 
-def DiffListsByKey(iterA, iterB, keyA, keyB):
+def DiffListsByKey(iterA: Iterator, iterB: Iterator, keyA: Any, keyB: Any):
 	"""iterators point to lists sorted by the given keys, which also represent their identities for comparison"""
 	return _DiffLists(iterA, iterB, lambda a, b: -1 if keyA(a) < keyB(b) else 1 if keyA(a) > keyB(b) else 0)
 
