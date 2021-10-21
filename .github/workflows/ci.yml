@@ -40,6 +40,4 @@ jobs:
         pytest --cov=listdiff
         coverage xml
     - name: Codecov
-      uses: codecov/codecov-action@v1.0.7
-      with:
-        token: ${{ secrets.CODECOV_TOKEN }}
+      uses: codecov/codecov-action@v2.1.0
