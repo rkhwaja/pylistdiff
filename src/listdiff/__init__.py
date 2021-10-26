@@ -1,6 +1,6 @@
 """Diff 2 python lists using a given key"""
 
-from collections.abc import Iterable, Iterator
+from collections.abc import Iterable, Iterator # pylint: disable=no-name-in-module
 from logging import getLogger, NullHandler
 from typing import Any
 
