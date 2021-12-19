@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "listdiff"
-version = "0.1"
+version = "1.0.0"
 description = "Diff 2 python lists using a given key"
 authors = ["Rehan Khwaja <rehan@khwaja.name>"]
 license = "MIT"
