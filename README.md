@@ -2,7 +2,7 @@
 
 Diff 2 python lists using a given key
 
-![image](https://github.com/rkhwaja/pylistdiff/workflows/ci/badge.svg) [![image](https://codecov.io/gh/rkhwaja/pylistdiff/branch/master/graph/badge.svg)](https://codecov.io/gh/rkhwaja/pylistdiff)
+[![image](https://codecov.io/gh/rkhwaja/pylistdiff/branch/master/graph/badge.svg)](https://codecov.io/gh/rkhwaja/pylistdiff)
 
 # Usage
 
