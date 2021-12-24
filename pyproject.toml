@@ -23,7 +23,7 @@ python = ">=3.6"
 [tool.poetry.dev-dependencies]
 pytest = "*"
 pylint = ">=2.5.3"
-pytest-cov = "^2.9.0"
+pytest-cov = ">=2.9.0"
 pylint-quotes = "*"
 
 [tool.pylint.master]
