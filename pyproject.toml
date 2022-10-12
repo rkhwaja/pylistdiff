@@ -18,12 +18,22 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = ">=3.7"
+poethepoet = ">=0.16.4"
 
 [tool.poetry.dev-dependencies]
 pytest = ">=7.1"
 pylint = ">=2.13.5"
 pytest-cov = ">=2.9.0"
 pylint-quotes = "*"
+
+[tool.poe.tasks]
+lint = "pylint src/listdiff tests"
+
+[tool.poe.tasks.test]
+shell = """
+pytest --cov=src/listdiff
+coverage xml
+"""
 
 [tool.pylint.master]
 load-plugins = [

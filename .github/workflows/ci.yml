@@ -34,12 +34,11 @@ jobs:
         poetry install
     - name: Linter
       run: |
-        pylint src/listdiff tests
+        poe lint
     - name: Tests
       run: |
         if python --version | grep -q 'Python 3.10' ; then
-          pytest --cov=src/listdiff
-          coverage xml
+          poe test
         fi
     - name: Codecov
       uses: codecov/codecov-action@v2.1.0
