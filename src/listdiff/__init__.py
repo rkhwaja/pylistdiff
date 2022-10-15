@@ -1,7 +1,10 @@
 """Diff 2 python lists using a given key"""
 
 from collections.abc import Iterable, Iterator
+from logging import getLogger, NullHandler
 from typing import Any
+
+getLogger(__name__).addHandler(NullHandler())
 
 # another method might be to start with inA and inB and remove the ones that are shared
 
