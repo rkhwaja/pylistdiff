@@ -32,7 +32,7 @@ lint = "pylint src/listdiff tests"
 
 [tool.poe.tasks.test]
 shell = """
-pytest --cov=src/listdiff
+pytest --cov=src/listdiff || exit 1
 coverage xml
 """
 
