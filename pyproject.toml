@@ -10,7 +10,6 @@ classifiers = [
 	"License :: OSI Approved :: MIT License",
 	"Development Status :: 5 - Production/Stable",
 	"Intended Audience :: Developers",
-	"Programming Language :: Python :: 3.7",
 	"Programming Language :: Python :: 3.8",
 	"Programming Language :: Python :: 3.9",
 	"Programming Language :: Python :: 3.10",
@@ -18,11 +17,11 @@ classifiers = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.7"
+python = ">=3.8"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.1"
-pylint = ">=2.13.5"
+pylint = ">=2.15"
 pytest-cov = ">=2.9.0"
 pylint-quotes = "*"
 poethepoet = ">=0.16.4"
@@ -60,7 +59,6 @@ triple-quote = "single"
 
 [tool.pylint.messages_control]
 disable = [
-	"bad-continuation",
 	"invalid-name",
 	"missing-docstring"
 ]
