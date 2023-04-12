@@ -1,8 +1,10 @@
 """Diff 2 python lists using a given key"""
 
+from __future__ import annotations
+
 from collections.abc import Iterable, Iterator
 from logging import getLogger, NullHandler
-from typing import Any
+from typing import Callable, TypeVar
 
 getLogger(__name__).addHandler(NullHandler())
 
@@ -14,11 +16,15 @@ getLogger(__name__).addHandler(NullHandler())
 
 # another method is to use yield to make an iterator?
 
-def DiffUnsortedLists(listA: Iterable, listB: Iterable, keyA: Any, keyB: Any):
+T = TypeVar('T')
+U = TypeVar('U')
+K = TypeVar('K')
+
+def DiffUnsortedLists(listA: Iterable[T], listB: Iterable[U], keyA: Callable[[T], K], keyB: Callable[[U], K]) -> tuple[list[T], list[tuple[T,U]], list[U]]:
 	"""iterators point to unsorted lists but the given keys represent their identities for comparison"""
 	return DiffListsByKey(iter(sorted(listA, key=keyA)), iter(sorted(listB, key=keyB)), keyA, keyB)
 
-def DiffListsByKey(iterA: Iterator, iterB: Iterator, keyA: Any, keyB: Any):
+def DiffListsByKey(iterA: Iterator[T], iterB: Iterator[U], keyA: Callable[[T], K], keyB: Callable[[U], K]) -> tuple[list[T], list[tuple[T,U]], list[U]]:
 	"""iterators point to lists sorted by the given keys, which also represent their identities for comparison"""
 	return _DiffLists(iterA, iterB, lambda a, b: -1 if keyA(a) < keyB(b) else 1 if keyA(a) > keyB(b) else 0)
 

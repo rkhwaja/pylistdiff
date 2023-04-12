@@ -36,7 +36,11 @@ coverage xml
 
 [tool.ruff]
 line-length = 200
-select = ["Q"]
+ignore = ["ANN001", "ANN202", "ANN401", "D100", "D203", "D205", "D206", "D211", "D212", "D400", "D401", "D403", "D415", "N802", "I", "N803", "N806", "PT013", "S101", "TCH003", "W191"]
+select = ["ALL"]
+
+[tool.ruff.extend-per-file-ignores]
+"tests/*" = ["ANN201", "D103", "INP001", "PT006"]
 
 [tool.ruff.flake8-quotes]
 inline-quotes = "single"
