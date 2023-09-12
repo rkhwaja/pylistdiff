@@ -21,13 +21,12 @@ python = ">=3.8"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=7.1"
-pylint = ">=2.15"
 pytest-cov = ">=2.9.0"
-pylint-quotes = "*"
 poethepoet = ">=0.16.4"
+ruff = ">=0.0.288"
 
 [tool.poe.tasks]
-lint = "pylint src/listdiff tests"
+lint = "ruff src tests"
 
 [tool.poe.tasks.test]
 shell = """
@@ -35,33 +34,13 @@ pytest --cov=src/listdiff || exit 1
 coverage xml
 """
 
-[tool.pylint.master]
-load-plugins = [
-	"pylint_quotes",
-	"pylint.extensions.bad_builtin",
-	"pylint.extensions.check_elif",
-	"pylint.extensions.code_style",
-	"pylint.extensions.confusing_elif",
-	"pylint.extensions.empty_comment",
-	"pylint.extensions.mccabe",
-	"pylint.extensions.overlapping_exceptions",
-	"pylint.extensions.redefined_variable_type",
-	"pylint.extensions.set_membership",
-	# "pylint.extensions.while_used",
-	]
-enable="useless-suppression"
+[tool.ruff]
+line-length = 200
+select = ["Q"]
 
-[tool.pylint.format]
-indent-string = "\t"
-max-line-length = 200
-string-quote = "single"
-triple-quote = "single"
-
-[tool.pylint.messages_control]
-disable = [
-	"invalid-name",
-	"missing-docstring"
-]
+[tool.ruff.flake8-quotes]
+inline-quotes = "single"
+multiline-quotes = "single"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
