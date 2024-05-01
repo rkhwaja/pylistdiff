@@ -27,6 +27,8 @@ Homepage = "https://github.com/rkhwaja/pylistdiff"
 [tool.poe.tasks]
 lint = "ruff check src tests"
 test = "pytest"
+fmt = "ruff format src tests"
+fmt-check = "ruff format --check src tests"
 
 [tool.poe.tasks.test-with-coverage]
 shell = """
@@ -40,6 +42,7 @@ lint.ignore = [
 	"ANN001", # missing-type-function-argument
 	"ANN202", # missing-return-type-private-function
 	"ANN401", # any-type
+	"COM812", # Conflicts with formatter
 	"D100",   # undocumented-public-module
 	"D203",   # one-blank-line-before-class
 	"D205",   # blank-line-after-summary
@@ -52,6 +55,7 @@ lint.ignore = [
 	"D415",   # ends-in-punctuation
 	"N802",   # invalid-function-name
 	"I",      # isort checks
+	"ISC001", # Conflicts with formatter
 	"N803",   # invalid-argument-name
 	"N806",   # non-lowercase-variable-in-function
 	"PT013",  # requires `import pytest`
@@ -70,7 +74,10 @@ lint.select = ["ALL"]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
-multiline-quotes = "single"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "tab"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
