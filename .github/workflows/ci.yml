@@ -32,6 +32,7 @@ jobs:
     - name: Linter
       run: |
         uv run poe lint
+        uv run poe fmt-check
     - name: Tests
       run: |
         uv run python -c "import listdiff"
