@@ -35,6 +35,7 @@ jobs:
     - name: Linter
       run: |
         poe lint
+        poe fmt-check
     - name: Tests
       run: |
         if python --version | grep -q 'Python 3.12' ; then

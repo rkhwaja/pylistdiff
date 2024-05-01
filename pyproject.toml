@@ -24,10 +24,12 @@ python = ">=3.8"
 pytest = ">=7.1"
 pytest-cov = ">=2.9.0"
 poethepoet = ">=0.16.4"
-ruff = ">=0.3.1"
+ruff = ">=0.5.1"
 
 [tool.poe.tasks]
 lint = "ruff check src tests"
+fmt = "ruff format src tests"
+fmt-check = "ruff format --check src tests"
 
 [tool.poe.tasks.test]
 shell = """
@@ -37,7 +39,7 @@ coverage xml
 
 [tool.ruff]
 line-length = 200
-lint.ignore = ["ANN001", "ANN202", "ANN401", "D100", "D203", "D205", "D206", "D211", "D212", "D400", "D401", "D403", "D415", "N802", "I", "N803", "N806", "PT013", "S101", "TCH003", "W191"]
+lint.ignore = ["ANN001", "ANN202", "ANN401", "COM812", "D100", "D203", "D205", "D206", "D211", "D212", "D400", "D401", "D403", "D415", "N802", "I", "ISC001", "N803", "N806", "PT013", "S101", "TCH003", "W191"]
 lint.select = ["ALL"]
 
 [tool.ruff.lint.extend-per-file-ignores]
@@ -45,7 +47,10 @@ lint.select = ["ALL"]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
-multiline-quotes = "single"
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "tab"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
