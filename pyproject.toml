@@ -25,15 +25,25 @@ pytest = ">=7.1"
 pytest-cov = ">=2.9.0"
 poethepoet = ">=0.16.4"
 ruff = ">=0.3.1"
+yapf = ">=0.40.2"
 
 [tool.poe.tasks]
 lint = "ruff check src tests"
+fmt = "yapf --recursive --in-place src tests "
 
 [tool.poe.tasks.test]
 shell = """
 pytest --cov=src/listdiff || exit 1
 coverage xml
 """
+
+[tool.yapf]
+based_on_style = "pep8"
+use_tabs = true
+column_limit = 200
+blank_lines_around_top_level_definition = 1
+continuation_align_style = "fixed"
+spaces_before_comment = 1
 
 [tool.ruff]
 line-length = 200
