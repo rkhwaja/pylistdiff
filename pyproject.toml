@@ -25,8 +25,9 @@ Homepage = "https://github.com/rkhwaja/pylistdiff"
 
 [tool.poe.tasks]
 lint = "ruff check src tests"
+test = "pytest"
 
-[tool.poe.tasks.test]
+[tool.poe.tasks.test-with-coverage]
 shell = """
 pytest --cov=src/listdiff || exit 1
 coverage xml
