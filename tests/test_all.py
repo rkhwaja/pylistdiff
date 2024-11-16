@@ -18,7 +18,7 @@ def test_diff_lists_by_key():
 	assert inBoth == [(3, 3)]
 	assert inB == [4, 5]
 
-@mark.parametrize('listA,listB,expected',
+@mark.parametrize(('listA', 'listB', 'expected'),
 	[ ([1, 2, 3, 5], [2, 3, 4], ([1, 5], [(2, 2), (3, 3)], [4]))
 	, ([], [2, 3, 4], ([], [], [2, 3, 4]))
 	, ([1, 2, 3, 5], [], ([1, 2, 3, 5], [], []))

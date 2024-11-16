@@ -34,11 +34,37 @@ coverage xml
 
 [tool.ruff]
 line-length = 200
-lint.ignore = ["ANN001", "ANN202", "ANN401", "D100", "D203", "D205", "D206", "D211", "D212", "D400", "D401", "D403", "D415", "N802", "I", "N803", "N806", "PT013", "S101", "TCH003", "W191"]
+lint.ignore = [
+	"ANN001", # missing-type-function-argument
+	"ANN202", # missing-return-type-private-function
+	"ANN401", # any-type
+	"D100",   # undocumented-public-module
+	"D203",   # one-blank-line-before-class
+	"D205",   # blank-line-after-summary
+	"D206",   # indent-with-spaces
+	"D211",   # blank-line-before-class
+	"D212",   # multi-line-summary-first-line
+	"D400",   # ends-in-period
+	"D401",   # non-imperative-mood
+	"D403",   # first-line-capitalized
+	"D415",   # ends-in-punctuation
+	"N802",   # invalid-function-name
+	"I",      # isort checks
+	"N803",   # invalid-argument-name
+	"N806",   # non-lowercase-variable-in-function
+	"PT013",  # requires `import pytest`
+	"S101",   # Disallows use of assert
+	"TCH003", # Requires use of TYPE_CHECKING
+	"W191",   # Checks for indentation that uses tabs
+	]
 lint.select = ["ALL"]
 
 [tool.ruff.lint.extend-per-file-ignores]
-"tests/*" = ["ANN201", "D103", "INP001", "PT006"]
+"tests/*" = [
+	"ANN201", # Checks that public functions and methods have return type annotations
+	"D103",   # Checks for undocumented public function definitions
+	"INP001", # Checks for packages that are missing an __init__.py file
+	]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "single"
