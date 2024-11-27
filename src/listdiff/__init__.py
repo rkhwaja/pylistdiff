@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Iterable, Iterator
 from logging import getLogger, NullHandler
 from typing import Callable, Protocol, TypeVar
+from typing_extensions import Self
 
 getLogger(__name__).addHandler(NullHandler())
 
@@ -21,10 +22,10 @@ U = TypeVar('U')
 K = TypeVar('K')
 
 class SupportsCompare(Protocol[K]):
-	def __lt__(self, other: K) -> K:
+	def __lt__(self, other: Self) -> bool:
 		...
 
-	def __gt__(self, other: K) -> K:
+	def __gt__(self, other: Self) -> bool:
 		...
 
 def DiffUnsortedLists(listA: Iterable[T], listB: Iterable[U], keyA: Callable[[T], SupportsCompare[K]], keyB: Callable[[U], SupportsCompare[K]]) -> tuple[list[T], list[tuple[T,U]], list[U]]:
