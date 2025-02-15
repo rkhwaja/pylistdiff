@@ -55,7 +55,7 @@ lint.ignore = [
 	"N806",   # non-lowercase-variable-in-function
 	"PT013",  # requires `import pytest`
 	"S101",   # Disallows use of assert
-	"TCH003", # Requires use of TYPE_CHECKING
+	"TC003", # Requires use of TYPE_CHECKING
 	"W191",   # Checks for indentation that uses tabs
 	]
 lint.select = ["ALL"]
@@ -83,5 +83,5 @@ dev-dependencies = [
     "pytest>=7.1",
     "pytest-cov>=2.9.0",
     "poethepoet>=0.16.4",
-    "ruff>=0.3.1",
+    "ruff>=0.9.6",
 ]
