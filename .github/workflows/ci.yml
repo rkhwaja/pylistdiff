@@ -34,7 +34,8 @@ jobs:
         uv run poe lint
     - name: Tests
       run: |
-        if python --version | grep -q 'Python 3.13' ; then
+        uv run python -c "import listdiff"
+        if uv run python --version | grep -q 'Python 3.13' ; then
           uv run poe test-with-coverage
         fi
     - name: Codecov
