@@ -1,6 +1,6 @@
 [project]
 name = "listdiff"
-version = "1.0.3"
+version = "1.0.4"
 description = "Diff 2 python lists using a given key"
 maintainers = [
 	{ name = "Rehan Khwaja", email = "rehan@khwaja.name" }
@@ -26,6 +26,7 @@ Homepage = "https://github.com/rkhwaja/pylistdiff"
 
 [tool.poe.tasks]
 lint = "ruff check src tests"
+ty = "ty check src tests"
 test = "pytest"
 
 [tool.poe.tasks.test-with-coverage]
@@ -41,6 +42,8 @@ lint.ignore = [
 	"ANN202", # missing-return-type-private-function
 	"ANN401", # any-type
 	"D100",   # undocumented-public-module
+	"D101",   # missing docstring in public class
+	"D105",	  # missing docstring in magic method
 	"D203",   # one-blank-line-before-class
 	"D205",   # blank-line-after-summary
 	"D206",   # indent-with-spaces
@@ -85,4 +88,5 @@ dev = [
     "pytest-cov>=2.9.0",
     "poethepoet>=0.16.4",
     "ruff>=0.9.6",
+    "ty>=0.0.1a9",
 ]

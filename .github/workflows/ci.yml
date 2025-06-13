@@ -28,11 +28,13 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
         activate-environment: true
+        ignore-nothing-to-cache: true
     - name: Dependencies
       run: uv sync --no-cache
     - name: Linter
       run: |
         poe lint
+        poe ty
     - name: Tests
       run: |
         python -c "import listdiff"
