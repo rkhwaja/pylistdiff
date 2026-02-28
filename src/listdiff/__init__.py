@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable, Iterator
+from collections.abc import Callable, Iterable, Iterator
 from logging import getLogger, NullHandler
-from typing import Callable, Protocol, TypeVar
+from typing import Protocol, TypeVar
 from typing_extensions import Self
 
 getLogger(__name__).addHandler(NullHandler())
