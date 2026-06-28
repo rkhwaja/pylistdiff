@@ -4,8 +4,10 @@ from __future__ import annotations
 
 from collections.abc import Callable, Iterable, Iterator
 from logging import getLogger, NullHandler
-from typing import Protocol, TypeVar
-from typing_extensions import Self
+from typing import TYPE_CHECKING, TypeVar
+
+if TYPE_CHECKING:
+    from _typeshed import SupportsRichComparison
 
 getLogger(__name__).addHandler(NullHandler())
 
@@ -19,22 +21,14 @@ getLogger(__name__).addHandler(NullHandler())
 
 T = TypeVar('T')
 U = TypeVar('U')
-K = TypeVar('K')
 
-class SupportsCompare(Protocol[K]):
-	def __lt__(self, other: Self) -> bool:
-		...
-
-	def __gt__(self, other: Self) -> bool:
-		...
-
-def DiffUnsortedLists(listA: Iterable[T], listB: Iterable[U], keyA: Callable[[T], SupportsCompare[K]], keyB: Callable[[U], SupportsCompare[K]]) -> tuple[list[T], list[tuple[T,U]], list[U]]:
+def DiffUnsortedLists(listA: Iterable[T], listB: Iterable[U], keyA: Callable[[T], SupportsRichComparison], keyB: Callable[[U], SupportsRichComparison]) -> tuple[list[T], list[tuple[T,U]], list[U]]:
 	"""iterators point to unsorted lists but the given keys represent their identities for comparison"""
 	return DiffListsByKey(iter(sorted(listA, key=keyA)), iter(sorted(listB, key=keyB)), keyA, keyB)
 
-def DiffListsByKey(iterA: Iterator[T], iterB: Iterator[U], keyA: Callable[[T], SupportsCompare[K]], keyB: Callable[[U], SupportsCompare[K]]) -> tuple[list[T], list[tuple[T,U]], list[U]]:
+def DiffListsByKey(iterA: Iterator[T], iterB: Iterator[U], keyA: Callable[[T], SupportsRichComparison], keyB: Callable[[U], SupportsRichComparison]) -> tuple[list[T], list[tuple[T,U]], list[U]]:
 	"""iterators point to lists sorted by the given keys, which also represent their identities for comparison"""
-	return _DiffLists(iterA, iterB, lambda a, b: -1 if keyA(a) < keyB(b) else 1 if keyA(a) > keyB(b) else 0)
+	return _DiffLists(iterA, iterB, lambda a, b: -1 if keyA(a) < keyB(b) else 1 if keyA(a) > keyB(b) else 0) # ty: ignore[unsupported-operator]
 
 # assumes iterA and iterB are ordered
 def _DiffLists(iterA, iterB, compare):
