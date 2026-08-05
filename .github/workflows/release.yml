@@ -12,27 +12,39 @@ jobs:
       # Create this environment in the GitHub repository under Settings -> Environments
       name: pypi
     permissions:
-      id-token: write
       contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          persist-credentials: false
       - name: Install uv
         uses: astral-sh/setup-uv@c771a70e6277c0a99b617c7a806ffedaca235ff9 # v9.0.0
-      - name: Install Python 3.14
-        run: uv python install 3.14
+        with:
+          enable-cache: false
       - name: Build
         run: uv build
+      - name: Upload distributions as artifacts
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: dist
+          path: dist/
   pypi-publish:
     name: Upload release to PyPI
     runs-on: ubuntu-latest
     # Specifying a GitHub environment is optional, but strongly encouraged
-    environment: pypi
+    environment:
+      name: pypi
+      url: https://pypi.org/p/listdiff
     permissions:
       # IMPORTANT: this permission is mandatory for Trusted Publishing
       id-token: write
+      contents: read
     steps:
-      # retrieve your distributions here
-
+      - name: Download built distributions
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
